@@ -106,7 +106,9 @@ exports.author_delete_get = asyncHandler(async (req, res, next) => {
     Book.find({ author: req.params.id }, 'title summary').exec(),
   ]);
 
-  if (author === null) res.redirect('/catalog/authors');
+  if (author === null) {
+    res.redirect('/catalog/authors');
+  }
 
   res.render('author_delete', {
     title: 'Delete Author',
