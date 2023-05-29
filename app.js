@@ -33,7 +33,7 @@ app.use(limiter);
 // Set up Mongoose connection
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DB_CONNECTION_URL);
+mongoose.connect(process.env.MONGODB_URI || process.env.MONGODB_URI_DEV);
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error: '));
